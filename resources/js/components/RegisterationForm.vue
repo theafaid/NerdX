@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="register" @keydown="form.onKeydown($event)">
+    <form @submit.prevent="submit" @keydown="form.onKeydown($event)">
 <!--        <a class="btn btn-social btn-google-plus btn-block btn-icon-left" href="" role="button"><i class="fa fa-google-plus"></i> Register with Google Plus</a>-->
 <!--        <div class="divider"><span>or</span></div>-->
         <div class="form-group input-icon-left m-b-10">
@@ -69,7 +69,8 @@
                     email: '',
                     password: '',
                     password_confirmation: ''
-                })
+                }),
+                loading: false
             }
         },
 
@@ -80,6 +81,12 @@
         },
 
         methods:{
+            submit(){
+                this.loading = true;
+                this.register();
+                this.showLoadingModal();
+            },
+
             register(){
                 if(this.isValidForm){
                     this.form.post('/register')
@@ -89,7 +96,21 @@
                         .catch(error => {
                             this.form.password = '';
                             this.form.password_confirmation = '';
+                            this.loading = false;
                         });
+                }
+            },
+
+            showLoadingModal(){
+                if(this.loading){
+                    let timerInterval
+                    Swal.fire({
+                        html: 'Wait fo a while ...',
+                        timer: 3000,
+                        onBeforeOpen: () => {
+                            Swal.showLoading();
+                        }
+                    })
                 }
             },
 

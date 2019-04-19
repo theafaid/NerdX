@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="login" @keydown="form.onKeydown($event)">
+    <form @submit.prevent="submit" @keydown="form.onKeydown($event)">
 <!--        <a class="btn btn-social btn-facebook btn-block btn-icon-left" href="" role="button"><i class="fa fa-facebook"></i> Connect with Facebook</a>-->
 <!--        <div class="divider">-->
 <!--            <span>or</span>-->
@@ -50,7 +50,8 @@
                     email: '',
                     password: '',
                     remember: false
-                })
+                }),
+                loading: false
             }
         },
 
@@ -61,13 +62,33 @@
         },
 
         methods: {
-            login(){
+            submit(){
                 if(this.isValidForm){
-                    this.form.post('/login')
-                        .then(({ data }) => { location.reload();})
-                        .catch(error => {
-                            this.form.password = '';
-                        });
+                    this.loading = true;
+                    this.login();
+                    this.showLoadingModal();
+                }
+            },
+
+            login(){
+                this.form.post('/login')
+                    .then(({ data }) => { location.reload();})
+                    .catch(error => {
+                        this.loading = false;
+                        this.form.password = '';
+                    });
+            },
+
+            showLoadingModal(){
+                if(this.loading){
+                    let timerInterval
+                    Swal.fire({
+                        html: 'Logging ...',
+                        timer: 1500,
+                        onBeforeOpen: () => {
+                            Swal.showLoading();
+                        }
+                    })
                 }
             },
 
