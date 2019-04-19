@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<!-- main -->
+<section class="bg-image bg-image-sm">
+    <div class="container">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
@@ -25,8 +26,8 @@
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
@@ -43,5 +44,6 @@
             </div>
         </div>
     </div>
-</div>
+</section>
+<!-- /main -->
 @endsection
