@@ -9,5 +9,25 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <style>
+        .background-wrap{
+            position: fixed;
+            width: 100%;
+            z-index: -999;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+
+        #video-bg-element{
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+    </style>
 </head>
 <body class="fixed-header">
