@@ -155,7 +155,7 @@
                                             <li><a href="profile.html">Profile</a></li>
                                             <li><a href="{{route('login')}}">Login</a></li>
                                             <li><a href="login-2.html">Login 2</a></li>
-                                            <li><a href="register.html">Register</a></li>
+                                            <li><a href="{{route('register')}}">Register</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="contact.html">Contact</a></li>
@@ -224,11 +224,63 @@
                     </nav>
                 </div>
                 <div class="nav navbar-right">
+                    @auth
+                        <ul>
+                            <li class="dropdown dropdown-profile">
+                                <a href="login.html" data-toggle="dropdown"><img src="design/site/img/user/avatar-sm.jpg" alt=""> <span>Nathan Drake</span></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item active" href="#"><i class="fa fa-user"></i> Profile</a>
+                                    <a class="dropdown-item" href="#"><i class="fa fa-envelope-open"></i> Inbox</a>
+                                    <a class="dropdown-item" href="#"><i class="fa fa-heart"></i> Games</a>
+                                    <a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Settings</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out"></i> Logout</a>
+                                </div>
+                            </li>
+                            <li class="dropdown dropdown-notification">
+                                <a href="register.html" data-toggle="dropdown">
+                                    <i class="fa fa-bell"></i>
+                                    <span class="badge badge-danger">2</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <h5 class="dropdown-header"><i class="fa fa-bell"></i> Notifications</h5>
+                                    <div class="dropdown-block">
+                                        <a class="dropdown-item" href="#">
+                                            <span class="badge badge-info"><i class="fa fa-envelope-open"></i></span> new email
+                                            <span class="date">just now</span>
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <span class="badge badge-danger"><i class="fa fa-thumbs-up"></i></span> liked your post
+                                            <span class="date">5 mins</span>
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <span class="badge badge-primary"><i class="fa fa-user-plus"></i></span> friend request
+                                            <span class="date">2 hours</span>
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <span class="badge badge-info"><i class="fa fa-envelope"></i></span> new email
+                                            <span class="date">3 days</span>
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <span class="badge badge-info"><i class="fa fa-video-camera"></i></span> sent a video
+                                            <span class="date">5 days</span>
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <span class="badge badge-danger"><i class="fa fa-thumbs-up"></i></span> liked your post
+                                            <span class="date">8 days</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a data-toggle="search"><i class="fa fa-search"></i></a></li>
+                        </ul>
+                    @else
                     <ul>
-                        <li class="hidden-xs-down"><a href="login.html">Login</a></li>
-                        <li class="hidden-xs-down"><a href="register.html">Register</a></li>
+                        <li class="hidden-xs-down"><a href="{{route('login')}}">Login</a></li>
+                        <li class="hidden-xs-down"><a href="{{route('register')}}">Register</a></li>
                         <li><a data-toggle="search"><i class="fa fa-search"></i></a></li>
                     </ul>
+                    @endauth
                 </div>
             </div>
         </div>

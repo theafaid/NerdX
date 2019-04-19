@@ -308,9 +308,8 @@ img {
 
 #header .nav > ul > li.dropdown-profile > a:after,
 #header .nav > ul > li.dropdown-profile > a:after {
-  content: "\f078";
-  font-family: "FontAwesome";
-  font-size: 8px;
+  content: "\25BE";
+  font-size: 10px;
   float: right;
   margin-left: 8px;
 }
