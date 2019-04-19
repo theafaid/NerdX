@@ -1927,7 +1927,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     isValidForm: function isValidForm() {
-      return this.validateEmail(this.form.email) && this.form.name && this.form.password && this.form.password == this.form.password_confirmation;
+      return this.validateEmail(this.form.email) && this.form.name && this.form.password && this.form.password_confirmation;
     }
   },
   methods: {
@@ -32373,8 +32373,8 @@ var render = function() {
               {
                 name: "validate",
                 rawName: "v-validate",
-                value: "required|string",
-                expression: "'required|string'"
+                value: "required",
+                expression: "'required'"
               },
               {
                 name: "model",
@@ -32417,8 +32417,8 @@ var render = function() {
               {
                 name: "validate",
                 rawName: "v-validate",
-                value: "required|string",
-                expression: "'required|string'"
+                value: "required|email",
+                expression: "'required|email'"
               },
               {
                 name: "model",

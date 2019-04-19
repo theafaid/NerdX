@@ -5,7 +5,7 @@
         <div class="form-group input-icon-left m-b-10">
             <i class="fa fa-user"></i>
             <input
-                    v-validate="'required|string'"
+                    v-validate="'required'"
                     v-model="form.name"
                     :class="{ 'is-invalid': form.errors.has('name') }"
                     type="text"
@@ -19,7 +19,7 @@
         <div class="form-group input-icon-left m-b-10">
             <i class="fa fa-envelope"></i>
             <input
-                    v-validate="'required|string'"
+                    v-validate="'required|email'"
                     v-model="form.email"
                     :class="{ 'is-invalid': form.errors.has('email') }"
                     type="text"
@@ -75,7 +75,7 @@
 
         computed:{
             isValidForm(){
-                return this.validateEmail(this.form.email) && this.form.name && this.form.password && (this.form.password == this.form.password_confirmation);
+                return this.validateEmail(this.form.email) && this.form.name && this.form.password && this.form.password_confirmation;
             }
         },
 
@@ -83,7 +83,9 @@
             register(){
                 if(this.isValidForm){
                     this.form.post('/register')
-                        .then(({data}) => {location.reload();})
+                        .then(({data}) => {
+                            location.reload()
+                         })
                         .catch(error => {
                             this.form.password = '';
                             this.form.password_confirmation = '';
