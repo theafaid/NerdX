@@ -7,6 +7,7 @@
         <div class="form-group input-icon-left m-b-10">
             <i class="fa fa-envelope"></i>
             <input
+                    v-validate="'required|email'"
                     v-model="form.email"
                     :class="{ 'is-invalid': form.errors.has('email') }"
                     type="text"
@@ -14,10 +15,13 @@
                     placeholder="Email Address"
                     class="form-control form-control-secondary">
             <has-error :form="form" field="email"></has-error>
+            <span class="text-red">{{ errors.first('email') }}</span>
+
         </div>
         <div class="form-group input-icon-left m-b-15">
             <i class="fa fa-lock"></i>
             <input
+                    v-validate="'required'"
                     v-model="form.password"
                     :class="{ 'is-invalid': form.errors.has('password') }"
                     type="password"
@@ -25,6 +29,7 @@
                     placeholder="Password"
                     class="form-control form-control-secondary">
             <has-error :form="form" field="password"></has-error>
+            <span class="text-red">{{ errors.first('password') }}</span>
         </div>
         <label class="custom-control custom-checkbox custom-checkbox-primary">
             <input type="checkbox" class="custom-control-input" v-model="form.remember">
@@ -51,7 +56,7 @@
 
         computed:{
             isValidForm(){
-                return this.validateEmail(this.form.email) && (this.form.password.length >= 8) ;
+                return this.validateEmail(this.form.email) && this.form.password ;
             }
         },
 
@@ -60,6 +65,9 @@
                 if(this.isValidForm){
                     this.form.post('/login')
                         .then(({ data }) => { location.reload();})
+                        .catch(error => {
+                            this.form.password = '';
+                        });
                 }
             },
 

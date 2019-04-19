@@ -10,11 +10,15 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import Vue from 'vue'
+
 import { Form, HasError, AlertError } from 'vform'
 
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 window.Form = Form
+
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
 
 /**
  * The following block of code may be used to automatically register your

@@ -5,6 +5,7 @@
         <div class="form-group input-icon-left m-b-10">
             <i class="fa fa-user"></i>
             <input
+                    v-validate="'required|string'"
                     v-model="form.name"
                     :class="{ 'is-invalid': form.errors.has('name') }"
                     type="text"
@@ -12,10 +13,13 @@
                     placeholder="Full name"
                     class="form-control form-control-secondary">
             <has-error :form="form" field="name"></has-error>
+            <span class="text-red">{{ errors.first('name') }}</span>
+
         </div>
         <div class="form-group input-icon-left m-b-10">
             <i class="fa fa-envelope"></i>
             <input
+                    v-validate="'required|string'"
                     v-model="form.email"
                     :class="{ 'is-invalid': form.errors.has('email') }"
                     type="text"
@@ -23,10 +27,13 @@
                     placeholder="Email Address"
                     class="form-control form-control-secondary">
             <has-error :form="form" field="email"></has-error>
+            <span class="text-red">{{ errors.first('email') }}</span>
+
         </div>
         <div class="form-group input-icon-left m-b-10">
             <i class="fa fa-lock"></i>
             <input
+                v-validate="'required|min:8'"
                 v-model="form.password"
                 :class="{ 'is-invalid': form.errors.has('password') }"
                 type="password"
@@ -34,6 +41,8 @@
                 placeholder="Password"
                 class="form-control form-control-secondary">
             <has-error :form="form" field="password"></has-error>
+            <span class="text-red">{{ errors.first('password') }}</span>
+
         </div>
         <div class="form-group input-icon-left m-b-10">
             <i class="fa fa-unlock"></i>
@@ -74,7 +83,11 @@
             register(){
                 if(this.isValidForm){
                     this.form.post('/register')
-                        .then(({data}) => {location.reload()});
+                        .then(({data}) => {location.reload();})
+                        .catch(error => {
+                            this.form.password = '';
+                            this.form.password_confirmation = '';
+                        });
                 }
             },
 
