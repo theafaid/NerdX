@@ -153,7 +153,7 @@
                                         <a href="#">User</a>
                                         <ul>
                                             <li><a href="profile.html">Profile</a></li>
-                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="{{route('login')}}">Login</a></li>
                                             <li><a href="login-2.html">Login 2</a></li>
                                             <li><a href="register.html">Register</a></li>
                                         </ul>
