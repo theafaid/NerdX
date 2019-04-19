@@ -51,7 +51,7 @@
 
         computed:{
             isValidForm(){
-                return this.validateEmail(this.form.email) && this.form.password ;
+                return this.validateEmail(this.form.email) && (this.form.password.length >= 8) ;
             }
         },
 

@@ -1813,7 +1813,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     isValidForm: function isValidForm() {
-      return this.validateEmail(this.form.email) && this.form.password;
+      return this.validateEmail(this.form.email) && this.form.password.length >= 8;
     }
   },
   methods: {
