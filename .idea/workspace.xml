@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc10ea02-d613-44f9-9192-9a71cf04a515" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/CreateChannel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CreateChannel.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/_footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/_header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/messages.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/_messages.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/_nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/06191241c351ac2e0abdb3fe0634d49d0813449f.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/06191241c351ac2e0abdb3fe0634d49d0813449f.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/2fe7bc7582176e19972170daf4214d42cfd8bf7e.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/2fe7bc7582176e19972170daf4214d42cfd8bf7e.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/4a1afaa939e58757f1bf660165bca9264a753e03.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/4a1afaa939e58757f1bf660165bca9264a753e03.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/7fcd299bf47cc2a4858f3c81cb109e45788ac0c9.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/7fcd299bf47cc2a4858f3c81cb109e45788ac0c9.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/839144c6a443b2ea889628357c56c944560da621.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/839144c6a443b2ea889628357c56c944560da621.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,19 +52,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/CreateChannel.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+            <state relative-caret-position="1944">
+              <caret line="72" column="34" selection-start-line="72" selection-start-column="34" selection-end-line="72" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/CreateChannel.vue">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/queue.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="72" column="34" selection-start-line="72" selection-start-column="34" selection-end-line="72" selection-end-column="34" />
+            <state relative-caret-position="179">
+              <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/_nav.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7244" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -65,24 +90,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
               <caret line="92" column="14" selection-start-line="81" selection-start-column="12" selection-end-line="92" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/global-components.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="13" column="67" selection-start-line="13" selection-start-column="67" selection-end-line="13" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/packages.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -171,7 +178,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/layouts/components/video_background.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/components/RegisterForm.vue" />
         <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/partials/nav.blade.php" />
@@ -222,6 +228,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ChannelsController.php" />
         <option value="$PROJECT_DIR$/tests/Feature/CreateChannelTest.php" />
         <option value="$PROJECT_DIR$/resources/js/components/CreateChannel.vue" />
+        <option value="$PROJECT_DIR$/config/queue.php" />
       </list>
     </option>
   </component>
@@ -331,6 +338,11 @@
             <path>
               <item name="nerdx" type="b2602c69:ProjectViewProjectNode" />
               <item name="nerdx" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nerdx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nerdx" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -345,6 +357,27 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nerdx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nerdx" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nerdx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nerdx" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nerdx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nerdx" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -401,18 +434,18 @@
       <workItem from="1555009569312" duration="464000" />
       <workItem from="1555056223062" duration="160000" />
       <workItem from="1555672109071" duration="40584000" />
-      <workItem from="1555759398359" duration="8257000" />
+      <workItem from="1555759398359" duration="10055000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53314000" />
+    <option name="totallyTimeSpent" value="55112000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16613248" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16613248" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -427,7 +460,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32908705" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.16786079" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.16786079" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="12" weight="0.32958034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -461,16 +494,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.lock">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -526,21 +549,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/footer.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/_footer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/messages.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/_messages.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
@@ -822,8 +838,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/CreateChannel.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
+        <state relative-caret-position="1944">
           <caret line="72" column="34" selection-start-line="72" selection-start-column="34" selection-end-line="72" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/queue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/_nav.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7244" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
         </state>
       </provider>
     </entry>
