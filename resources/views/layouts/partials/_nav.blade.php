@@ -231,10 +231,13 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item active" href="#"><i class="fa fa-user"></i> Profile</a>
                                     <a class="dropdown-item" href="#"><i class="fa fa-envelope-open"></i> Inbox</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-heart"></i> Games</a>
+                                    <a class="dropdown-item" href="{{route('user.channels.create', auth()->user()->name)}}"><i class="fa fa-plus"></i> New Channel</a>
                                     <a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Settings</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out"></i> Logout</a>
+                                    <form action="{{route('logout')}}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item"><i class="fa fa-sign-out"></i> Logout</button>
+                                    </form>
                                 </div>
                             </li>
                             <li class="dropdown dropdown-notification">

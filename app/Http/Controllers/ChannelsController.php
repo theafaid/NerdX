@@ -23,9 +23,9 @@ class ChannelsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($username)
     {
-        return view('channels.create');
+        return auth()->user()->name == $username ? view('channels.create') : abort(404);
     }
 
 
@@ -40,7 +40,7 @@ class ChannelsController extends Controller
 
         return response([
             'msg'         => 'Your channel created successfully',
-            'redirectUrl' => route('channels.show', $channel->slug)
+            'redirectUrl' => route('user.channels.show', [auth()->user()->name, $channel->slug])
         ]);
     }
 
