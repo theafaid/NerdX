@@ -82,23 +82,23 @@
 
         methods:{
             submit(){
-                this.loading = true;
-                this.register();
-                this.showLoadingModal();
+                if(this.isValidForm){
+                    this.loading = true;
+                    this.register();
+                    this.showLoadingModal();
+                }
             },
 
             register(){
-                if(this.isValidForm){
-                    this.form.post('/register')
-                        .then(({data}) => {
-                            location.reload()
-                         })
-                        .catch(error => {
-                            this.form.password = '';
-                            this.form.password_confirmation = '';
-                            this.loading = false;
-                        });
-                }
+                this.form.post('/register')
+                    .then(({data}) => {
+                        location.reload()
+                     })
+                    .catch(error => {
+                        this.form.password = '';
+                        this.form.password_confirmation = '';
+                        this.loading = false;
+                    });
             },
 
             showLoadingModal(){

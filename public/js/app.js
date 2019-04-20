@@ -1952,23 +1952,23 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      this.loading = true;
-      this.register();
-      this.showLoadingModal();
+      if (this.isValidForm) {
+        this.loading = true;
+        this.register();
+        this.showLoadingModal();
+      }
     },
     register: function register() {
       var _this = this;
 
-      if (this.isValidForm) {
-        this.form.post('/register').then(function (_ref) {
-          var data = _ref.data;
-          location.reload();
-        })["catch"](function (error) {
-          _this.form.password = '';
-          _this.form.password_confirmation = '';
-          _this.loading = false;
-        });
-      }
+      this.form.post('/register').then(function (_ref) {
+        var data = _ref.data;
+        location.reload();
+      })["catch"](function (error) {
+        _this.form.password = '';
+        _this.form.password_confirmation = '';
+        _this.loading = false;
+      });
     },
     showLoadingModal: function showLoadingModal() {
       if (this.loading) {
