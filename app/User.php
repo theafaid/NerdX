@@ -44,4 +44,12 @@ class User extends Authenticatable
     public function profile(){
         return $this->hasOne('App\Profile');
     }
+
+    /**
+     * Get user channels
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function channels(){
+        return $this->hasMany('App\Channel');
+    }
 }
