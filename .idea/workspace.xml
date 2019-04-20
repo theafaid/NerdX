@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc10ea02-d613-44f9-9192-9a71cf04a515" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/CreateChannel.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChannelsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChannelsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreChannelRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreChannelRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/global-components.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/global-components.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/channels/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/channels/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/CreateChannelTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CreateChannelTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/CreateChannel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CreateChannel.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/CreateChannel.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2241">
-              <caret line="83" column="45" lean-forward="true" selection-start-line="83" selection-start-column="45" selection-end-line="83" selection-end-column="45" />
+            <state relative-caret-position="648">
+              <caret line="72" column="34" selection-start-line="72" selection-start-column="34" selection-end-line="72" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -94,27 +87,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/Feature/CreateChannelTest.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="32" column="80" selection-start-line="32" selection-start-column="80" selection-end-line="32" selection-end-column="80" />
+            <state relative-caret-position="449">
+              <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
               <folding>
-                <element signature="e#33#49#0#PHP" expanded="true" />
+                <element signature="e#23#63#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../nice-templates/gameforesthtml-412/upload/forum-create.html">
+        <entry file="file://$PROJECT_DIR$/tests/Feature/CreateChannelTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="268" column="2" selection-start-line="268" selection-start-column="2" selection-end-line="352" selection-end-column="16" />
+            <state relative-caret-position="421">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
-                <element signature="n#header#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#section#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#section#1;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#33#49#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -229,8 +220,8 @@
         <option value="$PROJECT_DIR$/resources/views/channels/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/StoreChannelRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ChannelsController.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/CreateChannel.vue" />
         <option value="$PROJECT_DIR$/tests/Feature/CreateChannelTest.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/CreateChannel.vue" />
       </list>
     </option>
   </component>
@@ -410,12 +401,12 @@
       <workItem from="1555009569312" duration="464000" />
       <workItem from="1555056223062" duration="160000" />
       <workItem from="1555672109071" duration="40584000" />
-      <workItem from="1555759398359" duration="8024000" />
+      <workItem from="1555759398359" duration="8257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53081000" />
+    <option name="totallyTimeSpent" value="53314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -716,16 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-          <folding>
-            <element signature="e#23#63#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -795,13 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/LoginForm.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="92" column="14" selection-start-line="81" selection-start-column="12" selection-end-line="92" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ChannelsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
@@ -819,20 +793,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/CreateChannel.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2241">
-          <caret line="83" column="45" lean-forward="true" selection-start-line="83" selection-start-column="45" selection-end-line="83" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Feature/CreateChannelTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="32" column="80" selection-start-line="32" selection-start-column="80" selection-end-line="32" selection-end-column="80" />
+        <state relative-caret-position="421">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#33#49#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
+          <folding>
+            <element signature="e#23#63#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/LoginForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="92" column="14" selection-start-line="81" selection-start-column="12" selection-end-line="92" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/CreateChannel.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="72" column="34" selection-start-line="72" selection-start-column="34" selection-end-line="72" selection-end-column="34" />
         </state>
       </provider>
     </entry>

@@ -17,7 +17,7 @@
 
             </div>
             <div class="form-group">
-                <label></i> Describe your channel</label>
+                <label>Describe your channel</label>
                 <textarea
                         v-validate="'max:10000'"
                         v-model="form.description"
@@ -58,12 +58,20 @@
             }
         },
 
+        computed: {
+            isValidForm(){
+                return this.form.name;
+            }
+        },
+
         methods:{
             submit(){
-                this.loading = true;
+                if(this.isValidForm){
+                    this.loading = true;
 
-                this.showLoadingModal();
-                this.create();
+                    this.showLoadingModal();
+                    this.create();
+                }
             },
 
             create(){

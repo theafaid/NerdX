@@ -1820,11 +1820,18 @@ __webpack_require__.r(__webpack_exports__);
       loading: false
     };
   },
+  computed: {
+    isValidForm: function isValidForm() {
+      return this.form.name;
+    }
+  },
   methods: {
     submit: function submit() {
-      this.loading = true;
-      this.showLoadingModal();
-      this.create();
+      if (this.isValidForm) {
+        this.loading = true;
+        this.showLoadingModal();
+        this.create();
+      }
     },
     create: function create() {
       var _this = this;
@@ -35108,7 +35115,7 @@ var render = function() {
             "div",
             { staticClass: "form-group" },
             [
-              _c("label", [_vm._v(" Describe your channel")]),
+              _c("label", [_vm._v("Describe your channel")]),
               _vm._v(" "),
               _c("textarea", {
                 directives: [
