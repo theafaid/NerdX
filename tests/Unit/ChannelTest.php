@@ -11,7 +11,8 @@ class ChannelTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_belongs_to_a_user(){
+    function it_belongs_to_a_user()
+    {
         $channel = factory('App\Channel')->create();
 
         $this->assertInstanceOf('App\User', $channel->owner);

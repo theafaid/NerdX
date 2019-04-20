@@ -10,6 +10,14 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected static function boot(){
+        parent::boot();
+
+        static::created(function($user){
+            $user->profile()->create();
+        });
+    }
+
     /**
      * The attributes that are mass assignable.
      *

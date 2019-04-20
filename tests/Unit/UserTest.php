@@ -11,7 +11,16 @@ class UserTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function a_user_has_many_channels(){
+    function a_user_as_a_profile()
+    {
+        $user = factory('App\User')->create();
+
+        $this->assertInstanceOf('App\Profile', $user->profile);
+    }
+
+    /** @test */
+    function a_user_has_many_channels()
+    {
         $user = factory('App\User')->create();
 
         $this->assertInstanceOf(Collection::class, $user->channels);
