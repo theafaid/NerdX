@@ -14,9 +14,11 @@ class RegistrationTest extends TestCase
     {
         $this->assertNull(auth()->user());
 
+        $user = make('App\User');
+
         $this->post(route('register'), [
             'name'                  => 'John Doe',
-            'email'                 => 'john@yahool.com',
+            'email'                 => 'john@yahoo.com',
             'password'              => 'password',
             'password_confirmation' => 'password'
         ]);

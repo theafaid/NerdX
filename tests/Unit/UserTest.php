@@ -13,7 +13,7 @@ class UserTest extends TestCase
     /** @test */
     function a_user_as_a_profile()
     {
-        $user = factory('App\User')->create();
+        $user = create('App\User');
 
         $this->assertInstanceOf('App\Profile', $user->profile);
     }
@@ -21,7 +21,7 @@ class UserTest extends TestCase
     /** @test */
     function a_user_has_many_channels()
     {
-        $user = factory('App\User')->create();
+        $user = create('App\User');
 
         $this->assertInstanceOf(Collection::class, $user->channels);
     }

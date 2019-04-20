@@ -13,7 +13,7 @@ class ChannelTest extends TestCase
     /** @test */
     function it_belongs_to_a_user()
     {
-        $channel = factory('App\Channel')->create();
+        $channel = create('App\Channel');
 
         $this->assertInstanceOf('App\User', $channel->owner);
     }
