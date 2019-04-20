@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -7,34 +6,17 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
-
-import Vue from 'vue'
-
-import { Form, HasError, AlertError } from 'vform'
-
-Vue.component(HasError.name, HasError)
-Vue.component(AlertError.name, AlertError)
-window.Form = Form
-
-import VeeValidate from 'vee-validate';
-Vue.use(VeeValidate);
-
-window.Swal = require('sweetalert2');
 
 /**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ * Load all dependencies packages
  */
+require('./packages');
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('login-form', require('./components/LoginForm.vue').default);
-Vue.component('registeration-form', require('./components/RegisterationForm.vue').default);
+/**
+ * Require global vue js components
+ */
+require('./global-components');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
