@@ -29,8 +29,8 @@ class CreateChannelTest extends TestCase
 
         $channel = make('App\Channel');
 
-        $this->post(route('channels.store'), $channel->toArray())
-                ->assertRedirect(route('channels.show', $channel->slug));
+        $this->postJson(route('channels.store'), $channel->toArray())
+            ->assertJson(['redirectUrl' => route('channels.show', $channel->slug)]);
 
         $this->assertNotNull($user->fresh()->channels);
 

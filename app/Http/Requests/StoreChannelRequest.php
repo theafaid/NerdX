@@ -35,8 +35,8 @@ class StoreChannelRequest extends FormRequest
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(){
-        $channel = $this->user()->createChannel($this->only(['name', 'description', 'logo_path']));
-
-        return redirect()->route('channels.show', $channel->slug);
+        return $this->user()->createChannel($this->only([
+            'name', 'description', 'logo_path'
+        ]));
     }
 }

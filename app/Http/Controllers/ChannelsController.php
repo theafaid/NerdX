@@ -36,7 +36,12 @@ class ChannelsController extends Controller
      */
     public function store(StoreChannelRequest $request)
     {
-        return $request->store();
+        $channel = $request->store();
+
+        return response([
+            'msg'         => 'Your channel created successfully',
+            'redirectUrl' => route('channels.show', $channel->slug)
+        ]);
     }
 
     /**
