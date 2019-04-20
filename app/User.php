@@ -60,4 +60,17 @@ class User extends Authenticatable
     public function channels(){
         return $this->hasMany('App\Channel');
     }
+
+    /**
+     * Create a new channel
+     * @param $data
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function createChannel($data){
+        return $this->channels()->create([
+            'name' => $data['name'],
+            'slug' => \Str::slug($data['name']),
+            'description' => $data['description'],
+        ]);
+    }
 }

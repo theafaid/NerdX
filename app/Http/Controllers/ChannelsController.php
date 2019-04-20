@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Channel;
+use App\Http\Requests\StoreChannelRequest;
 use Illuminate\Http\Request;
 
 class ChannelsController extends Controller
@@ -27,28 +28,15 @@ class ChannelsController extends Controller
         return view('channels.create');
     }
 
+
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreChannelRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StoreChannelRequest $request)
     {
-        $data = request()->validate([
-            'name' => 'required|string|max:55',
-            'description' => 'nullable|string|max:10000',
-            'logo_path' => 'nullable|image|mimes:jpg,jpeg,png'
-        ]);
-
-        $channel = Channel::create([
-            'user_id' =>auth()->id(),
-            'name' => $data['name'],
-            'description' => $data['description'],
-//            'logo_path' => request()->hasFile('logo_path') ? request()->file('logo_path')->store('channels') :
-        ]);
-
-        return redirect(route('channels.show', $channel->slug));
+        return $request->store();
     }
 
     /**
