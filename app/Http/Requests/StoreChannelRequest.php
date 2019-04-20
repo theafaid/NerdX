@@ -24,7 +24,7 @@ class StoreChannelRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'        => 'required|string|max:55',
+            'name'        => 'required|string|max:55|unique:channels,name',
             'description' => 'nullable|string|max:10000',
             'logo_path'   => 'nullable|image|mimes:jpg,jpeg,png'
         ];
