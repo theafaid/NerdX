@@ -1,3 +1,7 @@
+@php
+    $segments = request()->segments();
+@endphp
+
 @if(count($segments) && $segments[1] != 'home')
     <!-- main -->
     <section class="breadcrumbs">
