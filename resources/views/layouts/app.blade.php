@@ -10,8 +10,4 @@
     @yield('content')
 </div>
 
-@if(! request()->segment(1) == null)
-
-    @include('layouts.partials._footer')
-
-@endif
+@include('layouts.partials._footer')

@@ -2058,11 +2058,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     isValidForm: function isValidForm() {
-      return this.validateEmail(this.form.email) && this.form.name && this.form.password && this.form.password_confirmation;
+      return this.validateEmail(this.form.email) && this.form.name && this.form.password;
+    },
+    isValidPassword: function isValidPassword() {
+      return this.form.password.length >= 8 && this.form.password == this.form.password_confirmation;
     }
   },
   methods: {
     submit: function submit() {
+      if (!this.isValidPassword) {
+        this.showError('Password must be at least 8 chars and confirmed !');
+        return;
+      }
+
       if (this.isValidForm) {
         this.loading = true;
         this.register();
@@ -2092,6 +2100,18 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       }
+    },
+    showError: function showError(text) {
+      var Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+      Toast.fire({
+        type: 'error',
+        title: text
+      });
     },
     validateEmail: function validateEmail(email) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -35538,8 +35558,8 @@ var render = function() {
               {
                 name: "validate",
                 rawName: "v-validate",
-                value: "required|min:8",
-                expression: "'required|min:8'"
+                value: "required",
+                expression: "'required'"
               },
               {
                 name: "model",

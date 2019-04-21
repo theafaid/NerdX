@@ -2,7 +2,7 @@
     $segments = request()->segments();
 @endphp
 
-@if(count($segments) && $segments[0] != 'home')
+@if(count($segments) && ! in_array($segments[0], ['home', 'register', 'login', 'password', 'verify', 'email']))
     <!-- main -->
     <section class="breadcrumbs">
         <div class="container">

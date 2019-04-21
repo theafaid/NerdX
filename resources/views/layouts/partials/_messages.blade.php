@@ -1,7 +1,4 @@
 @if($text = session('success'))
-    <script>
-        alert('here');
-    </script>
     @push('js')
         <script>
             const Toast = Swal.mixin({

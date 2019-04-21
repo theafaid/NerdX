@@ -33,7 +33,7 @@
         <div class="form-group input-icon-left m-b-10">
             <i class="fa fa-lock"></i>
             <input
-                v-validate="'required|min:8'"
+                v-validate="'required'"
                 v-model="form.password"
                 :class="{ 'is-invalid': form.errors.has('password') }"
                 type="password"
@@ -76,12 +76,22 @@
 
         computed:{
             isValidForm(){
-                return this.validateEmail(this.form.email) && this.form.name && this.form.password && this.form.password_confirmation;
-            }
+                return this.validateEmail(this.form.email) && this.form.name && this.form.password;
+            },
+
+            isValidPassword(){
+                return (this.form.password.length) >= 8 && (this.form.password == this.form.password_confirmation);
+            },
         },
 
         methods:{
             submit(){
+
+                if(! this.isValidPassword){
+                    this.showError('Password must be at least 8 chars and confirmed !');
+                    return;
+                }
+
                 if(this.isValidForm){
                     this.loading = true;
                     this.register();
@@ -112,6 +122,20 @@
                         }
                     })
                 }
+            },
+
+            showError(text){
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+                Toast.fire({
+                    type: 'error',
+                    title: text
+                })
             },
 
             validateEmail(email){

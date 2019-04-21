@@ -1,27 +1,18 @@
-@extends('layouts.app')
+@component('layouts.components.auth')
+    @slot('pageTitle')
+        Login
+    @endslot
 
-@section('content')
-<!-- main -->
-<section class="bg-image bg-image-sm">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-8 col-md-4 mx-auto">
-                <div class="card m-b-0">
-                    <div class="card-header">
-                        <h4 class="card-title"><i class="fa fa-sign-in"></i> Login to your account</h4>
-                    </div>
-                    <div class="card-block">
-                        <login-form></login-form>
-                        <div class="divider">
-                            <span>Don't have an account?</span>
-                        </div>
-                        <a class="btn btn-secondary btn-block" href="{{route('register')}}" role="button">Register</a>
-                    </div>
-                </div>
-            </div>
+    @slot('title')
+        <i class="fa fa-sign-in-alt"></i> Login to your account
+    @endslot
+
+    @slot('body')
+        <login-form></login-form>
+        <div class="divider">
+            <span>Don't have an account?</span>
         </div>
-    </div>
-</section>
-<!-- /main -->
-@endsection
+        <a class="btn btn-secondary btn-block" href="{{route('register')}}" role="button">Register</a>
+        <a class="btn btn-link btn-block" href="{{route('password.request')}}">Forgot your password ?</a>
+    @endslot
+@endcomponent
