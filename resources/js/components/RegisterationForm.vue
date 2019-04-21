@@ -61,7 +61,11 @@
 </template>
 
 <script>
+    import fire from '../mixins/fire'
+
     export default{
+        mixins: [fire],
+
         data(){
             return {
                 form: new Form({
@@ -70,7 +74,8 @@
                     password: '',
                     password_confirmation: ''
                 }),
-                loading: false
+                loading: false,
+                alertText: '',
             }
         },
 
@@ -88,20 +93,22 @@
             submit(){
 
                 if(! this.isValidPassword){
-                    this.showError('Password must be at least 8 chars and confirmed !');
                     return;
                 }
 
                 if(this.isValidForm){
                     this.loading = true;
                     this.register();
-                    this.showLoadingModal();
                 }
             },
 
             register(){
+                this.alertText = 'Wait until we register you ...';
+                this.loading = true;
+
                 this.form.post('/register')
                     .then(({data}) => {
+                        this.loading = false;
                         location.reload()
                      })
                     .catch(error => {
@@ -109,33 +116,6 @@
                         this.form.password_confirmation = '';
                         this.loading = false;
                     });
-            },
-
-            showLoadingModal(){
-                if(this.loading){
-                    let timerInterval
-                    Swal.fire({
-                        html: 'Wait fo a while ...',
-                        timer: 3000,
-                        onBeforeOpen: () => {
-                            Swal.showLoading();
-                        }
-                    })
-                }
-            },
-
-            showError(text){
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000
-                });
-
-                Toast.fire({
-                    type: 'error',
-                    title: text
-                })
             },
 
             validateEmail(email){

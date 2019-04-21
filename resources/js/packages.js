@@ -14,6 +14,6 @@ window.Form = Form
 import VeeValidate from 'vee-validate';
 Vue.use(VeeValidate);
 
-// require Sweet alerts for alarming
+// require Sweet fire for alarming
 
 window.Swal = require('sweetalert2');

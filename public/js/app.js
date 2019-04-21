@@ -1925,7 +1925,8 @@ __webpack_require__.r(__webpack_exports__);
         password: '',
         remember: false
       }),
-      loading: false
+      loading: false,
+      alertText: ''
     };
   },
   computed: {
@@ -1944,6 +1945,8 @@ __webpack_require__.r(__webpack_exports__);
     login: function login() {
       var _this = this;
 
+      this.loading = true;
+      this.alertText = "Logging ...";
       this.form.post('/login').then(function (_ref) {
         var data = _ref.data;
         location.reload();
@@ -1982,6 +1985,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_fire__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/fire */ "./resources/js/mixins/fire.vue");
 //
 //
 //
@@ -2044,7 +2048,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_mixins_fire__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
       form: new Form({
@@ -2053,7 +2059,8 @@ __webpack_require__.r(__webpack_exports__);
         password: '',
         password_confirmation: ''
       }),
-      loading: false
+      loading: false,
+      alertText: ''
     };
   },
   computed: {
@@ -2067,21 +2074,22 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     submit: function submit() {
       if (!this.isValidPassword) {
-        this.showError('Password must be at least 8 chars and confirmed !');
         return;
       }
 
       if (this.isValidForm) {
         this.loading = true;
         this.register();
-        this.showLoadingModal();
       }
     },
     register: function register() {
       var _this = this;
 
+      this.alertText = 'Wait until we register you ...';
+      this.loading = true;
       this.form.post('/register').then(function (_ref) {
         var data = _ref.data;
+        _this.loading = false;
         location.reload();
       })["catch"](function (error) {
         _this.form.password = '';
@@ -2089,33 +2097,66 @@ __webpack_require__.r(__webpack_exports__);
         _this.loading = false;
       });
     },
-    showLoadingModal: function showLoadingModal() {
+    validateEmail: function validateEmail(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/mixins/fire.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/mixins/fire.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      loading: false,
+      alertText: ''
+    };
+  },
+  watch: {
+    loading: function loading() {
+      this.loading == true ? this.showLoadingModal(this.alertText) : this.hideLodaingModal();
+    }
+  },
+  methods: {
+    fire: function fire(text) {
+      var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'success';
+      var toast = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+      var position = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'top-end';
+      var timer = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 3000;
+      var showConfirmButton = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : false;
+      var Toast = Swal.mixin({
+        toast: toast,
+        position: position,
+        showConfirmButton: showConfirmButton,
+        timer: timer
+      });
+      Toast.fire({
+        type: type,
+        title: text
+      });
+    },
+    showLoadingModal: function showLoadingModal(text) {
       if (this.loading) {
-        var timerInterval;
         Swal.fire({
-          html: 'Wait fo a while ...',
-          timer: 3000,
+          html: text,
           onBeforeOpen: function onBeforeOpen() {
             Swal.showLoading();
           }
         });
       }
     },
-    showError: function showError(text) {
-      var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000
-      });
-      Toast.fire({
-        type: 'error',
-        title: text
-      });
-    },
-    validateEmail: function validateEmail(email) {
-      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(String(email).toLowerCase());
+    hideLodaingModal: function hideLodaingModal() {
+      Swal.close();
     }
   }
 });
@@ -48190,6 +48231,56 @@ Vue.component('create-channel', __webpack_require__(/*! ./components/CreateChann
 
 /***/ }),
 
+/***/ "./resources/js/mixins/fire.vue":
+/*!**************************************!*\
+  !*** ./resources/js/mixins/fire.vue ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _fire_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fire.vue?vue&type=script&lang=js& */ "./resources/js/mixins/fire.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  _fire_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/mixins/fire.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/mixins/fire.vue?vue&type=script&lang=js&":
+/*!***************************************************************!*\
+  !*** ./resources/js/mixins/fire.vue?vue&type=script&lang=js& ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_fire_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./fire.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/mixins/fire.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_fire_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/packages.js":
 /*!**********************************!*\
   !*** ./resources/js/packages.js ***!
@@ -48211,7 +48302,7 @@ Vue.component(vform__WEBPACK_IMPORTED_MODULE_0__["AlertError"].name, vform__WEBP
 window.Form = vform__WEBPACK_IMPORTED_MODULE_0__["Form"]; // require V-Validate for form validation
 
 
-Vue.use(vee_validate__WEBPACK_IMPORTED_MODULE_1__["default"]); // require Sweet alerts for alarming
+Vue.use(vee_validate__WEBPACK_IMPORTED_MODULE_1__["default"]); // require Sweet fire for alarming
 
 window.Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 

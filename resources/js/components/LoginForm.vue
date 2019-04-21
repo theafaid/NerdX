@@ -51,7 +51,8 @@
                     password: '',
                     remember: false
                 }),
-                loading: false
+                loading: false,
+                alertText: '',
             }
         },
 
@@ -71,6 +72,9 @@
             },
 
             login(){
+                this.loading = true;
+                this.alertText = "Logging ...";
+
                 this.form.post('/login')
                     .then(({ data }) => { location.reload();})
                     .catch(error => {
