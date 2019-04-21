@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -15,6 +16,7 @@ class User extends Authenticatable
 
         static::created(function($user){
             $user->profile()->create();
+            $user->update(['username' => $user->name]);
         });
     }
 
@@ -23,9 +25,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -72,5 +72,17 @@ class User extends Authenticatable
             'slug' => \Str::slug($data['name']),
             'description' => $data['description'],
         ]);
+    }
+
+    /**
+     * @param $value
+     */
+    public function setUsernameAttribute($value){
+
+        $username = ucfirst(Str::camel($value));
+
+        $value = static::whereUsername($username)->exists() ? "{$username}{$this->id}" : $username;
+
+        $this->attributes['username'] = $value;
     }
 }
