@@ -2074,6 +2074,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     submit: function submit() {
       if (!this.isValidPassword) {
+        this.fire('Password must be at least 8 char and confirmed !', 'error');
         return;
       }
 

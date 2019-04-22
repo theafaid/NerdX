@@ -93,6 +93,7 @@
             submit(){
 
                 if(! this.isValidPassword){
+                    this.fire('Password must be at least 8 char and confirmed !', 'error');
                     return;
                 }
 
