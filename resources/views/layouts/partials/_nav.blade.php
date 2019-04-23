@@ -226,20 +226,7 @@
                 <div class="nav navbar-right">
                     @auth
                         <ul>
-                            <li class="dropdown dropdown-profile">
-                                <a href="login.html" data-toggle="dropdown"><img src="design/site/img/user/avatar-sm.jpg" alt=""> <span>Nathan Drake</span></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item active" href="#"><i class="fa fa-user"></i> Profile</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-envelope-open"></i> Inbox</a>
-                                    <a class="dropdown-item" href="{{route('user.channels.create', auth()->user()->name)}}"><i class="fa fa-plus"></i> New Channel</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Settings</a>
-                                    <div class="dropdown-divider"></div>
-                                    <form action="{{route('logout')}}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item"><i class="fa fa-sign-out"></i> Logout</button>
-                                    </form>
-                                </div>
-                            </li>
+                            @include('layouts.partials.user._nav_info')
                             <li class="dropdown dropdown-notification">
                                 <a href="register.html" data-toggle="dropdown">
                                     <i class="fa fa-bell"></i>
