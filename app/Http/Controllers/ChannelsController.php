@@ -25,7 +25,7 @@ class ChannelsController extends Controller
      */
     public function create($username)
     {
-        return auth()->user()->name == $username ? view('user.channels.create') : abort(404);
+        return auth()->user()->username == $username ? view('user.channels.create') : abort(404);
     }
 
 
