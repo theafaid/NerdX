@@ -29,11 +29,6 @@
                         ></textarea>
                 <has-error :form="form" field="description"></has-error>
                 <span class="text-red">{{ errors.first('description') }}</span>
-
-            </div>
-            <div class="form-group">
-                <label for="logo">Channel Logo</label>
-                <input class="form-control" type="file" name="logo">
             </div>
         </div>
 
@@ -44,8 +39,12 @@
 </template>
 
 <script>
+    import Fire from '../mixins/fire'
+
     export default {
         name: "CreateChannel",
+
+        mixins: [Fire],
 
         data(){
             return {
@@ -54,7 +53,8 @@
                     description: '',
                     logo: false
                 }),
-                loading: false
+                loading: false,
+                alertText: '',
             }
         },
 
@@ -66,45 +66,21 @@
 
         methods:{
             submit(){
-                if(this.isValidForm){
-                    this.loading = true;
-
-                    this.showLoadingModal();
-                    this.create();
-                }
+                this.isValidForm ? this.create() : this.fire('Please fill all fields', 'error');
             },
 
             create(){
+                this.loading = true;
+                this.alertText = 'Please wait until we create your new channel';
 
-                this.form.post('/channels')
+                this.form.post(route('user.channels.store', App.user.username))
                     .then(({data}) => {
                         this.loading = false;
-                        this.alertSuccess(data.msg, data.redirectUrl);
-                    });
-            },
 
-            showLoadingModal(){
-                if(this.loading){
-                    let timerInterval
-                    Swal.fire({
-                        html: 'Creating your channel ...',
-                        timer: 1000,
-                        onBeforeOpen: () => {
-                            Swal.showLoading();
-                        }
+                        this.successThenRedirect(data.msg, data.redirectUrl);
                     })
-                }
+                    .catch(erorr => {this.loading = false;});
             },
-
-            alertSuccess(message, url){
-                Swal.fire(
-                    message,
-                    '',
-                    'success'
-                ).then(() => {
-                    window.location = url
-                });
-            }
         }
     }
 </script>

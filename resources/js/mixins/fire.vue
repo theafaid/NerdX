@@ -16,7 +16,7 @@
 
         methods:{
 
-            fire(text,type = 'success', toast = true , position = 'top-end', timer = 3000, showConfirmButton = false){
+            fire(text,type = 'success', timer = 3000, toast = true , position = 'top-end', showConfirmButton = false){
                 const Toast = Swal.mixin({
                     toast: toast,
                     position: position,
@@ -24,10 +24,16 @@
                     timer: timer
                 });
 
-                Toast.fire({
+                return Toast.fire({
                     type: type,
                     title: text
                 })
+            },
+
+            successThenRedirect(text = null, redirectUrl){
+                setTimeout(() => {
+                    this.fire(text).then(() => {window.location = redirectUrl});
+                }, 200);
             },
 
             showLoadingModal(text){

@@ -1763,6 +1763,7 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_fire__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/fire */ "./resources/js/mixins/fire.vue");
 //
 //
 //
@@ -1803,13 +1804,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreateChannel",
+  mixins: [_mixins_fire__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
       form: new Form({
@@ -1817,7 +1815,8 @@ __webpack_require__.r(__webpack_exports__);
         description: '',
         logo: false
       }),
-      loading: false
+      loading: false,
+      alertText: ''
     };
   },
   computed: {
@@ -1827,37 +1826,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      if (this.isValidForm) {
-        this.loading = true;
-        this.showLoadingModal();
-        this.create();
-      }
+      this.isValidForm ? this.create() : this.fire('Please fill all fields', 'error');
     },
     create: function create() {
       var _this = this;
 
-      this.form.post('/channels').then(function (_ref) {
+      this.loading = true;
+      this.alertText = 'Please wait until we create your new channel';
+      this.form.post(route('user.channels.store', App.user.username)).then(function (_ref) {
         var data = _ref.data;
         _this.loading = false;
 
-        _this.alertSuccess(data.msg, data.redirectUrl);
-      });
-    },
-    showLoadingModal: function showLoadingModal() {
-      if (this.loading) {
-        var timerInterval;
-        Swal.fire({
-          html: 'Creating your channel ...',
-          timer: 1000,
-          onBeforeOpen: function onBeforeOpen() {
-            Swal.showLoading();
-          }
-        });
-      }
-    },
-    alertSuccess: function alertSuccess(message, url) {
-      Swal.fire(message, '', 'success').then(function () {
-        window.location = url;
+        _this.successThenRedirect(data.msg, data.redirectUrl);
+      })["catch"](function (erorr) {
+        _this.loading = false;
       });
     }
   }
@@ -2131,9 +2113,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     fire: function fire(text) {
       var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'success';
-      var toast = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-      var position = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'top-end';
-      var timer = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 3000;
+      var timer = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 3000;
+      var toast = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+      var position = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'top-end';
       var showConfirmButton = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : false;
       var Toast = Swal.mixin({
         toast: toast,
@@ -2141,10 +2123,21 @@ __webpack_require__.r(__webpack_exports__);
         showConfirmButton: showConfirmButton,
         timer: timer
       });
-      Toast.fire({
+      return Toast.fire({
         type: type,
         title: text
       });
+    },
+    successThenRedirect: function successThenRedirect() {
+      var _this = this;
+
+      var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var redirectUrl = arguments.length > 1 ? arguments[1] : undefined;
+      setTimeout(function () {
+        _this.fire(text).then(function () {
+          window.location = redirectUrl;
+        });
+      }, 200);
     },
     showLoadingModal: function showLoadingModal(text) {
       if (this.loading) {
@@ -35234,30 +35227,15 @@ var render = function() {
               ])
             ],
             1
-          ),
-          _vm._v(" "),
-          _vm._m(0)
+          )
         ]
       ),
       _vm._v(" "),
-      _vm._m(1)
+      _vm._m(0)
     ]
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "logo" } }, [_vm._v("Channel Logo")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "file", name: "logo" }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
