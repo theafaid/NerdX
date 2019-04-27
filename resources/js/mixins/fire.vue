@@ -10,13 +10,13 @@
 
         watch: {
             loading(){
-                this.loading == true ? this.showLoadingModal(this.alertText) : this.hideLodaingModal();
+                this.loading == true ? this.showLoadingModal(this.alertText) : this.hideLoadingModal();
             }
         },
 
         methods:{
 
-            fire(text,type = 'success', timer = 3000, toast = true , position = 'top-end', showConfirmButton = false){
+            fire(text,type = 'success', timer = 1500, toast = true , position = 'top-end', showConfirmButton = false){
                 const Toast = Swal.mixin({
                     toast: toast,
                     position: position,
@@ -31,9 +31,23 @@
             },
 
             successThenRedirect(text = null, redirectUrl){
-                setTimeout(() => {
+
+                if(! Swal.isLoading()){
                     this.fire(text).then(() => {window.location = redirectUrl});
-                }, 200);
+                }else{
+                    setTimeout(() => {
+                        this.fire(text).then(() => {window.location = redirectUrl});
+                    }, 300);
+                }
+            },
+
+            startLoading(text = null){
+                this.loading = true;
+                this.alertText = text;
+            },
+
+            stopLoading(){
+                this.loading = false;
             },
 
             showLoadingModal(text){
@@ -47,7 +61,7 @@
                 }
             },
 
-            hideLodaingModal(){
+            hideLoadingModal(){
                 Swal.close();
             }
         }

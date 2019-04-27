@@ -1812,16 +1812,13 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: new Form({
         name: '',
-        description: '',
-        logo: false
-      }),
-      loading: false,
-      alertText: ''
+        description: ''
+      })
     };
   },
   computed: {
     isValidForm: function isValidForm() {
-      return this.form.name;
+      return this.form.name && this.form.description;
     }
   },
   methods: {
@@ -1831,15 +1828,15 @@ __webpack_require__.r(__webpack_exports__);
     create: function create() {
       var _this = this;
 
-      this.loading = true;
-      this.alertText = 'Please wait until we create your new channel';
+      this.startLoading('Please wait until we create your new channel');
       this.form.post(route('user.channels.store', App.user.username)).then(function (_ref) {
         var data = _ref.data;
-        _this.loading = false;
+
+        _this.stopLoading();
 
         _this.successThenRedirect(data.msg, data.redirectUrl);
-      })["catch"](function (erorr) {
-        _this.loading = false;
+      })["catch"](function (error) {
+        _this.stopLoading();
       });
     }
   }
@@ -2107,13 +2104,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     loading: function loading() {
-      this.loading == true ? this.showLoadingModal(this.alertText) : this.hideLodaingModal();
+      this.loading == true ? this.showLoadingModal(this.alertText) : this.hideLoadingModal();
     }
   },
   methods: {
     fire: function fire(text) {
       var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'success';
-      var timer = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 3000;
+      var timer = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1500;
       var toast = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
       var position = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'top-end';
       var showConfirmButton = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : false;
@@ -2133,11 +2130,26 @@ __webpack_require__.r(__webpack_exports__);
 
       var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
       var redirectUrl = arguments.length > 1 ? arguments[1] : undefined;
-      setTimeout(function () {
-        _this.fire(text).then(function () {
+
+      if (!Swal.isLoading()) {
+        this.fire(text).then(function () {
           window.location = redirectUrl;
         });
-      }, 200);
+      } else {
+        setTimeout(function () {
+          _this.fire(text).then(function () {
+            window.location = redirectUrl;
+          });
+        }, 300);
+      }
+    },
+    startLoading: function startLoading() {
+      var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      this.loading = true;
+      this.alertText = text;
+    },
+    stopLoading: function stopLoading() {
+      this.loading = false;
     },
     showLoadingModal: function showLoadingModal(text) {
       if (this.loading) {
@@ -2149,7 +2161,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    hideLodaingModal: function hideLodaingModal() {
+    hideLoadingModal: function hideLoadingModal() {
       Swal.close();
     }
   }
@@ -35161,7 +35173,7 @@ var render = function() {
                 attrs: {
                   type: "text",
                   name: "name",
-                  placeholder: "Enter your channel name"
+                  placeholder: "Enter a unique & creative name"
                 },
                 domProps: { value: _vm.form.name },
                 on: {
@@ -35194,8 +35206,8 @@ var render = function() {
                   {
                     name: "validate",
                     rawName: "v-validate",
-                    value: "max:10000",
-                    expression: "'max:10000'"
+                    value: "required|max:1000",
+                    expression: "'required|max:1000'"
                   },
                   {
                     name: "model",
@@ -35231,27 +35243,28 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _vm._m(0)
+      _c("div", { staticClass: "m-t-30" }, [
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.loading,
+                expression: "! loading"
+              }
+            ],
+            staticClass: "btn btn-primary btn-rounded btn-shadow float-right",
+            attrs: { type: "submit", name: "save" }
+          },
+          [_vm._v("Create my channel")]
+        )
+      ])
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "m-t-30" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary btn-rounded btn-shadow float-right",
-          attrs: { type: "submit", name: "save" }
-        },
-        [_vm._v("Create my channel")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
