@@ -1,3 +1,11 @@
+@routes
+
+<script>
+    Ziggy.defaultParameters = {
+        locale: "en"
+    }
+</script>
+
 <script>
     window.App = {!! json_encode([
             'signedIn' => $authUser ? true : false,
