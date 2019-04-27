@@ -14,10 +14,6 @@ class ViewServiceProvider extends ServiceProvider
     public function register()
     {
         view()->composer('*', \App\ViewComposers\AllComposer::class);
-        view()->composer(
-            'layouts.partials._javascript',
-            \App\ViewComposers\RouteComposer::class
-        );
     }
 
     /**
