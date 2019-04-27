@@ -53,7 +53,8 @@
 </footer>
 <!-- /footer -->
 
-<script src="{{asset('js/app.js')}}"></script>
+@include('layouts.partials._javascript')
+
 @stack('js')
 
 </body>

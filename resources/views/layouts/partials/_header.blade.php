@@ -31,10 +31,3 @@
     </style>
 </head>
 <body class="fixed-header">
-
-    <script>
-        window.App = {!!json_encode([
-            'signedIn' => $authUser ? true : false,
-            'user'     => $authUser,
-        ], true) !!}
-    </script>

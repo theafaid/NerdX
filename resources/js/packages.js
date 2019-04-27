@@ -1,6 +1,9 @@
 // Require Vue js
 window.Vue = require('vue');
 
+// Collect Js [Collect app-routes]
+window.collect = require('collect.js')
+window.routes = collect(App.routes)
 
 // require V-Form for handling errors and requests
 
