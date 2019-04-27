@@ -15,7 +15,7 @@ class CreateChannelTest extends TestCase
     {
         $this->signIn();
 
-        $this->get(route('user.channels.create', auth()->user()->name))
+        $this->get(route('user.channels.create', auth()->user()->username))
             ->assertStatus(200)
             ->assertViewIs('user.channels.create');
     }
