@@ -29,5 +29,12 @@
         }
 
     </style>
+
+    <script>
+        window.App = {!! json_encode([
+            'signedIn' => $authUser ? true : false,
+            'user'     => $authUser,
+        ]) !!}
+    </script>
 </head>
 <body class="fixed-header">

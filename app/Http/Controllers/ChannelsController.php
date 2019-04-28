@@ -61,9 +61,9 @@ class ChannelsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($username, Channel $channel)
     {
-        //
+        return view('user.channels.edit', ['channel' => $channel]);
     }
 
     /**
