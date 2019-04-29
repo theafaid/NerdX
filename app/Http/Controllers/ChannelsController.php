@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Channel;
 use App\Http\Requests\StoreChannelRequest;
+use App\Http\Requests\UpdateChannelRequest;
 use Illuminate\Http\Request;
 
 class ChannelsController extends Controller
@@ -73,9 +74,14 @@ class ChannelsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($username, Channel $channel, UpdateChannelRequest $request)
     {
-        //
+        $request->persist($channel);
+
+        return response([
+                'msg' => 'Your channel updated successfully',
+                'redirectUrl' => route('user.channels.show', [auth()->user()->username, $channel->slug])
+        ]);
     }
 
     /**
