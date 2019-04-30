@@ -34,6 +34,7 @@
         window.App = {!! json_encode([
             'signedIn' => $authUser ? true : false,
             'user'     => $authUser,
+            'siteUrl'  => env('APP_URL')
         ]) !!}
     </script>
 </head>

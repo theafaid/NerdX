@@ -24,8 +24,8 @@ class UpdateChannelRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:55|unique:channels,name,'. $this->channel_id,
-            'slug' => 'required|string|max:55|unique:channels,slug,'. $this->channel_id,
+            'name' => 'required|string|max:55|unique:channels,name,'. $this->route('channel')->id,
+            'slug' => 'required|string|max:55|unique:channels,slug,'. $this->route('channel')->id,
             'description' => 'required|string|max:1000'
 //            'icon'
         ];

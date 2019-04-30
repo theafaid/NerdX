@@ -12,3 +12,4 @@
 Vue.component('login-form', require('./components/LoginForm.vue').default);
 Vue.component('registeration-form', require('./components/RegisterationForm.vue').default);
 Vue.component('create-channel', require('./components/CreateChannel.vue').default);
+Vue.component('edit-channel', require('./components/EditChannel.vue').default);
