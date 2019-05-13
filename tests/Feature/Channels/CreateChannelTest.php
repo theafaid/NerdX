@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Channels;
 
 use App\Channel;
 use Tests\TestCase;
@@ -30,7 +30,7 @@ class CreateChannelTest extends TestCase
         $channel = make('App\Channel');
 
         $this->postJson(route('user.channels.store', auth()->user()->name), $channel->toArray())
-            ->assertJson(['redirectUrl' => route('user.channels.show', [$user->name, $channel->slug])]);
+            ->assertJson(['redirectUrl' => route('user.channels.show', [$user->username, $channel->slug])]);
 
         $this->assertNotNull($user->fresh()->channels);
 

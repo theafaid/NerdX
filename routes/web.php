@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function(){
+    Route::get('/channels/{channel}', 'ChannelsController@show');
     Route::resource('/{username}/channels', 'ChannelsController', [
         'as' => 'user'
     ]);

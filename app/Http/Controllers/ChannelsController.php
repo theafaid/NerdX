@@ -41,7 +41,7 @@ class ChannelsController extends Controller
 
         return response([
             'msg'         => 'Your channel created successfully',
-            'redirectUrl' => route('user.channels.show', [auth()->user()->name, $channel->slug])
+            'redirectUrl' => route('user.channels.show', [auth()->user()->username, $channel->slug])
         ]);
     }
 
@@ -51,9 +51,9 @@ class ChannelsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Channel $channel)
     {
-        //
+        return view('channels.show', compact('channel'));
     }
 
     /**
