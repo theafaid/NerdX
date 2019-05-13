@@ -48638,7 +48638,7 @@ __webpack_require__.r(__webpack_exports__);
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 Vue.component('login-form', __webpack_require__(/*! ./components/LoginForm.vue */ "./resources/js/components/LoginForm.vue")["default"]);
-Vue.component('registeration-form', __webpack_require__(/*! ./components/RegisterationForm.vue */ "./resources/js/components/RegisterationForm.vue")["default"]);
+Vue.component('registration-form', __webpack_require__(/*! ./components/RegisterationForm.vue */ "./resources/js/components/RegisterationForm.vue")["default"]);
 Vue.component('create-channel', __webpack_require__(/*! ./components/CreateChannel.vue */ "./resources/js/components/CreateChannel.vue")["default"]);
 Vue.component('edit-channel', __webpack_require__(/*! ./components/EditChannel.vue */ "./resources/js/components/EditChannel.vue")["default"]);
 

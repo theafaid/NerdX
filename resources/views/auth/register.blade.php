@@ -8,6 +8,6 @@
     @endslot
 
     @slot('body')
-        <registeration-form></registeration-form>
+        <registration-form></registration-form>
     @endslot
 @endcomponent
