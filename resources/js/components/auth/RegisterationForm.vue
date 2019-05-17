@@ -1,7 +1,12 @@
 <template>
     <form @submit.prevent="submit" @keydown="form.onKeydown($event)">
-<!--        <a class="btn btn-social btn-google-plus btn-block btn-icon-left" href="" role="button"><i class="fa fa-google-plus"></i> Register with Google Plus</a>-->
-<!--        <div class="divider"><span>or</span></div>-->
+        <a class="btn btn-social btn-github" href="/auth/github" role="button"><i class="github"></i></a>
+        <a class="btn btn-social btn-facebook" href="/auth/facebook" role="button"><i class="facebook"></i></a>
+        <a class="btn btn-social btn-twitter" href="/auth/twitter" role="button"><i class="twitter"></i></a>
+        <div class="divider">
+            <span>or</span>
+        </div>
+
         <div class="form-group input-icon-left m-b-10">
             <i class="fa fa-user"></i>
             <input

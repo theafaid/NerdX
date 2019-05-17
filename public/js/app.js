@@ -1939,6 +1939,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_mixins_fire__WEBPACK_IMPORTED_MODULE_0__["default"]],
@@ -35985,6 +35990,14 @@ var render = function() {
       }
     },
     [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
       _c(
         "div",
         { staticClass: "form-group input-icon-left m-b-10" },
@@ -36167,11 +36180,56 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm._m(0)
+      _vm._m(4)
     ]
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-social btn-github",
+        attrs: { href: "/auth/github", role: "button" }
+      },
+      [_c("i", { staticClass: "github" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-social btn-facebook",
+        attrs: { href: "/auth/facebook", role: "button" }
+      },
+      [_c("i", { staticClass: "facebook" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-social btn-twitter",
+        attrs: { href: "/auth/twitter", role: "button" }
+      },
+      [_c("i", { staticClass: "twitter" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "divider" }, [_c("span", [_vm._v("or")])])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
