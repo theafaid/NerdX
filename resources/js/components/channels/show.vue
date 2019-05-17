@@ -8,7 +8,7 @@
                     <div class="hero-left">
                         <h2 class="hero-title">
                             <a href="profile.html">
-                                <img class="img img-thumbnail" src="/design/site/img/default/channel.png" alt="">
+                                <!--<img class="img img-thumbnail" src="/design/site/img/default/channel.png" alt="">-->
                             </a>
                             {{channel.name}}
                         </h2>

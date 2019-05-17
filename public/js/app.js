@@ -36624,7 +36624,7 @@ var render = function() {
           _c("div", { staticClass: "hero-block" }, [
             _c("div", { staticClass: "hero-left" }, [
               _c("h2", { staticClass: "hero-title" }, [
-                _vm._m(0),
+                _c("a", { attrs: { href: "profile.html" } }),
                 _vm._v(
                   "\n                        " +
                     _vm._s(_vm.channel.name) +
@@ -36634,34 +36634,23 @@ var render = function() {
               _vm._v(" "),
               _c("p", [_vm._v(_vm._s(_vm.channel.description))]),
               _vm._v(" "),
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
-              _vm._m(2)
+              _vm._m(1)
             ]),
             _vm._v(" "),
-            _vm._m(3)
+            _vm._m(2)
           ])
         ])
       ]
     ),
     _vm._v(" "),
-    _vm._m(4),
+    _vm._m(3),
     _vm._v(" "),
-    _vm._m(5)
+    _vm._m(4)
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "profile.html" } }, [
-      _c("img", {
-        staticClass: "img img-thumbnail",
-        attrs: { src: "/design/site/img/default/channel.png", alt: "" }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
