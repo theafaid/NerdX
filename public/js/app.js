@@ -2046,6 +2046,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "edit",
@@ -2071,8 +2087,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.startLoading('Please wait until we create your new channel');
-      this.form.post(route('user.channels.store', App.user.username)).then(function (_ref) {
+      this.form.post(route('channels.store', App.user.username)).then(function (_ref) {
         var data = _ref.data;
+        $("#createChannelModal").hide();
 
         _this.stopLoading();
 
@@ -36139,145 +36156,219 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "form",
+    "div",
     {
-      staticClass: "tab-content p-t-20",
-      on: {
-        submit: function($event) {
-          $event.preventDefault()
-          return _vm.submit($event)
-        },
-        keydown: function($event) {
-          return _vm.form.onKeydown($event)
-        }
+      staticClass: "modal fade",
+      attrs: {
+        id: "createChannelModal",
+        tabindex: "-1",
+        role: "dialog",
+        "aria-labelledby": "createChannelModal",
+        "aria-hidden": "true"
       }
     },
     [
-      _c(
-        "div",
-        {
-          staticClass: "tab-pane active",
-          attrs: { id: "forum", role: "tabpanel" }
-        },
-        [
-          _c(
-            "div",
-            { staticClass: "form-group" },
-            [
-              _c("label", [_vm._v("Channel Name")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: "required|max:55",
-                    expression: "'required|max:55'"
-                  },
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.name,
-                    expression: "form.name"
-                  }
-                ],
-                staticClass: "form-control",
-                class: { "is-invalid": _vm.form.errors.has("name") },
-                attrs: {
-                  type: "text",
-                  name: "name",
-                  placeholder: "Enter a unique & creative name"
-                },
-                domProps: { value: _vm.form.name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "name", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("has-error", { attrs: { form: _vm.form, field: "name" } }),
-              _vm._v(" "),
-              _c("span", { staticClass: "text-red" }, [
-                _vm._v(_vm._s(_vm.errors.first("name")))
-              ])
-            ],
-            1
-          ),
+      _c("div", { staticClass: "modal-dialog", attrs: { role: "document" } }, [
+        _c("div", { staticClass: "modal-content" }, [
+          _vm._m(0),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group" },
-            [
-              _c("label", [_vm._v("Describe your channel")]),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: "required|max:1000",
-                    expression: "'required|max:1000'"
-                  },
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.description,
-                    expression: "form.description"
-                  }
-                ],
-                staticClass: "form-control",
-                class: { "is-invalid": _vm.form.errors.has("description") },
-                attrs: { type: "text", name: "description", rows: "12" },
-                domProps: { value: _vm.form.description },
+          _c("div", { staticClass: "modal-body" }, [
+            _c(
+              "form",
+              {
+                staticClass: "tab-content p-t-20",
                 on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "description", $event.target.value)
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.submit($event)
+                  },
+                  keydown: function($event) {
+                    return _vm.form.onKeydown($event)
                   }
                 }
-              }),
-              _vm._v(" "),
-              _c("has-error", {
-                attrs: { form: _vm.form, field: "description" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "text-red" }, [
-                _vm._v(_vm._s(_vm.errors.first("description")))
-              ])
-            ],
-            1
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "m-t-30" }, [
-        _c(
-          "button",
-          {
-            directives: [
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane active",
+                    attrs: { id: "forum", role: "tabpanel" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", [_vm._v("Channel Name")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required|max:55",
+                              expression: "'required|max:55'"
+                            },
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.name,
+                              expression: "form.name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: { "is-invalid": _vm.form.errors.has("name") },
+                          attrs: {
+                            type: "text",
+                            name: "name",
+                            placeholder: "Enter a unique & creative name"
+                          },
+                          domProps: { value: _vm.form.name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "name", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "name" }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "text-red" }, [
+                          _vm._v(_vm._s(_vm.errors.first("name")))
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", [_vm._v("Channel Description")]),
+                        _vm._v(" "),
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required|max:1000",
+                              expression: "'required|max:1000'"
+                            },
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.description,
+                              expression: "form.description"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("description")
+                          },
+                          attrs: {
+                            type: "text",
+                            name: "description",
+                            placeholder: "Tell us what your channel will do ?",
+                            rows: "7"
+                          },
+                          domProps: { value: _vm.form.description },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "description",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "description" }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "text-red" }, [
+                          _vm._v(_vm._s(_vm.errors.first("description")))
+                        ])
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "modal-footer" }, [
+            _c(
+              "button",
               {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.loading,
-                expression: "! loading"
-              }
-            ],
-            staticClass: "btn btn-primary btn-rounded btn-shadow float-right",
-            attrs: { type: "submit", name: "save" }
-          },
-          [_vm._v("Create my channel")]
-        )
+                staticClass:
+                  "btn btn-secondary btn-rounded btn-shadow float-right",
+                attrs: { type: "button", "data-dismiss": "modal" }
+              },
+              [_vm._v("Close")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: !_vm.loading && _vm.isValidForm,
+                    expression: "! loading && isValidForm"
+                  }
+                ],
+                staticClass:
+                  "btn btn btn-primary btn-rounded btn-shadow float-right",
+                attrs: { type: "button" },
+                on: { click: _vm.submit }
+              },
+              [_vm._v("Create")]
+            )
+          ])
+        ])
       ])
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Create Your New Channel")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -36522,7 +36613,9 @@ var render = function() {
       "section",
       {
         staticClass: "hero hero-game",
-        staticStyle: { "background-image": "url('/img/hero/hero.jpg')" }
+        staticStyle: {
+          "background-image": "url('/design/site/img/hero/hero.jpg')"
+        }
       },
       [
         _c("div", { staticClass: "overlay" }),
@@ -36565,7 +36658,7 @@ var staticRenderFns = [
     return _c("a", { attrs: { href: "profile.html" } }, [
       _c("img", {
         staticClass: "img img-thumbnail",
-        attrs: { src: "/img/user/user-1.jpg", alt: "" }
+        attrs: { src: "/design/site/img/default/channel.png", alt: "" }
       })
     ])
   },

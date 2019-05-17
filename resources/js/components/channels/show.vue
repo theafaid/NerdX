@@ -1,14 +1,14 @@
 <template>
     <div>
         <!-- main -->
-        <section class="hero hero-game" style="background-image: url('/img/hero/hero.jpg');">
+        <section class="hero hero-game" style="background-image: url('/design/site/img/hero/hero.jpg');">
             <div class="overlay"></div>
             <div class="container">
                 <div class="hero-block">
                     <div class="hero-left">
                         <h2 class="hero-title">
                             <a href="profile.html">
-                                <img class="img img-thumbnail" src="/img/user/user-1.jpg" alt="">
+                                <img class="img img-thumbnail" src="/design/site/img/default/channel.png" alt="">
                             </a>
                             {{channel.name}}
                         </h2>

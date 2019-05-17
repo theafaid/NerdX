@@ -7,6 +7,7 @@
 @include('layouts.partials._messages')
 
 <div id="app">
+    <create-channel></create-channel>
     @yield('content')
 </div>
 

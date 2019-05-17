@@ -19,7 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/channels/{channel}', 'UserChannelsController@show');
 Route::resource('/channels', 'UserChannelsController', [
-    'except' => ['edit']
+    'except' => ['edit', 'create']
 ]);
