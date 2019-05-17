@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Jobs\UploadImage;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateChannelRequest extends FormRequest
@@ -23,28 +24,40 @@ class UpdateChannelRequest extends FormRequest
      */
     public function rules()
     {
+        $channelId = $this->route('channel')->id;
+
         return [
-//            'name' => 'required|string|max:55|unique:channels,name,'. $this->route('channel')->id,
-//            'slug' => 'required|string|max:55|unique:channels,slug,'. $this->route('channel')->id,
-//            'description' => 'required|string|max:1000',
-            'channel_logo' => 'image|nullable|mimes:png,jpg,jpeg'
+            'name'         => 'required|string|max:55|unique:channels,name,' . $channelId,
+            'slug'         => 'required|string|max:55|unique:channels,slug,'. $channelId,
+            'description'  => 'required|string|max:1000',
+            'logo'         => 'image|nullable|mimes:png,jpg,jpeg',
+            'background'   => 'image|nullable|mimes:png,jpg,jpeg'
         ];
     }
 
     public function persist($channel){
 
-        if($this->channel_logo){
-            $channel_logo = request()->file('channel_logo')->store('channels');
-        }else{
-            $channel_logo = $channel->logo_path;
-        }
-
-
         $channel->update([
-//            'name' => $this->name,
-//            'slug' => $this->slug,
-//            'description' => $this->description,
-            'logo_path' => $channel_logo
+            'name'            => $this->name,
+            'slug'            => $this->slug,
+            'description'     => $this->description,
         ]);
+
+        $images = ['logo' => 'logo_path', 'background' => 'background_path'];
+
+        foreach($images as $requestName => $fieldName){
+            if($this->$requestName){
+
+                $fileName = "{$channel->slug}_{$requestName}";
+
+                request()->file($requestName)->storeAs("Upload", $fileName);
+
+                dispatch(new UploadImage($channel, $fileName, $fieldName));
+            }
+        }
+    }
+
+    protected function upload($file, $fileName){
+        return $this->file($file)->store(storage_path("public/channels/{$fileName}_{$file}.jpg"));
     }
 }

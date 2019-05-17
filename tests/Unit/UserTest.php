@@ -25,4 +25,17 @@ class UserTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $user->channels);
     }
+
+    /** @test */
+    function can_check_if_user_is_own_an_object()
+    {
+        $this->signIn();
+
+        $user = auth()->user();
+        $channelOwnedByUser = create('App\Channel', ['user_id' => $user->id]);
+        $channelNotOwnedByUser = create('App\Channel');
+
+        $this->assertTrue($user->owns($channelOwnedByUser));
+        $this->assertFalse($user->owns($channelNotOwnedByUser));
+    }
 }

@@ -20,7 +20,7 @@ class CreateChannelsTable extends Migration
             $table->string('slug');
             $table->text('description')->nullable();
             $table->string('logo_path')->nullable();
-            $table->string('background_img_path')->nullable();
+            $table->string('background_path')->nullable();
             $table->timestamps();
         });
     }

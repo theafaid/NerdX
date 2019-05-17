@@ -85,4 +85,8 @@ class User extends Authenticatable
 
         $this->attributes['username'] = $value;
     }
+
+    public function owns($obj){
+        return $this->id == $obj->user_id;
+    }
 }

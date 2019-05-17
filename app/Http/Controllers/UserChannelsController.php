@@ -66,7 +66,7 @@ class UserChannelsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($username, Channel $channel)
+    public function edit(Channel $channel)
     {
         return view('user.channels.edit', ['channel' => $channel]);
     }
@@ -78,14 +78,16 @@ class UserChannelsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($username, Channel $channel, UpdateChannelRequest $request)
+    public function update(Channel $channel, UpdateChannelRequest $request)
     {
+
+        $this->authorize('update', $channel);
+
         $request->persist($channel);
 
         return response([
                 'msg' => 'Your channel updated successfully',
-                'redirectUrl' => route('user.channels.show', [auth()->user()->username, $channel->slug])
-        ]);
+        ], 200);
     }
 
     /**
