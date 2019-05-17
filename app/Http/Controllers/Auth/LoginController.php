@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -42,4 +44,72 @@ class LoginController extends Controller
         return $this->redirectTo;
     }
 
+    /**
+     * Redirect the user to the provider authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * Obtain the user information from Provider.
+     * @param $provider
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function handleProviderCallback($provider)
+    {
+
+        $userSocial = $this->getUserFromSocialite($provider);
+        $localUser  = $this->getUserFromDatabase($userSocial, $provider);
+
+        $localUser ? $this->loginUser($localUser) : $this->createUserThenLogin($userSocial, $provider);
+
+        return redirect()->route('home');
+    }
+
+
+    /**
+     * Get user using laravel socialite using a specific provider
+     * @param $provider
+     * @return mixed
+     */
+    protected function getUserFromSocialite($provider){
+        return Socialite::driver($provider)->stateless()->user() ?: abort(501);
+    }
+    /**
+     * Catch user from our database
+     * @param $provider
+     * @return mixed
+     */
+    protected function getUserFromDatabase($userSocial, $provider){
+        return User::where(['email' =>$userSocial->getEmail(), 'provider' => $provider])->first();
+    }
+
+    /**
+     * @param $user
+     * @param $provider
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    protected function createUserThenLogin($user, $provider){
+        $user = User::create([
+            'name'          => $user->getName(),
+            'email'         => $user->getEmail(),
+            'password'      => bcrypt(time() . uniqid()),
+            'provider_id'   => $user->getId(),
+            'provider'      => $provider,
+        ]);
+
+        $this->loginUser($user);
+    }
+
+    /**
+     * @param $user
+     */
+    protected function loginUser($user){
+        Auth::login($user);
+    }
 }
