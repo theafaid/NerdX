@@ -10669,15 +10669,32 @@ a.text-dark:focus {
 
 .fa,
 .fas,
+.user,
 .far,
 .fal,
-.fab {
+.fab,
+.facebook,
+.github,
+.twitter {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
   font-style: normal;
   font-variant: normal;
   text-rendering: auto;
+  line-height: 1;
+}
+
+.facebook,
+.github,
+.twitter,
+.user {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
   line-height: 1;
 }
 
@@ -10774,17 +10791,25 @@ a.text-dark:focus {
 
 .fa.fa-pull-left,
 .fas.fa-pull-left,
+.fa-pull-left.user,
 .far.fa-pull-left,
 .fal.fa-pull-left,
-.fab.fa-pull-left {
+.fab.fa-pull-left,
+.fa-pull-left.facebook,
+.fa-pull-left.github,
+.fa-pull-left.twitter {
   margin-right: 0.3em;
 }
 
 .fa.fa-pull-right,
 .fas.fa-pull-right,
+.fa-pull-right.user,
 .far.fa-pull-right,
 .fal.fa-pull-right,
-.fab.fa-pull-right {
+.fab.fa-pull-right,
+.fa-pull-right.facebook,
+.fa-pull-right.github,
+.fa-pull-right.twitter {
   margin-left: 0.3em;
 }
 
@@ -16397,7 +16422,8 @@ readers do not read off random characters that represent icons */
 }
 
 .fa,
-.fas {
+.fas,
+.user {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
@@ -16416,8 +16442,31 @@ readers do not read off random characters that represent icons */
   src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.eot?8e49b728413079dfd9ee45d0c58d54e4) format("embedded-opentype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff2?9f4ce3dc689981a1b87faab0f5484f9e) format("woff2"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff?9f018d1025561e96439f7c0e9026301a) format("woff"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.ttf?b7d071b9c3c197bff4af902070622423) format("truetype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.svg?38975343b586296e9b73e6b56cc3ec5d) format("svg");
 }
 
-.fab {
+.fab,
+.facebook,
+.github,
+.twitter {
   font-family: "Font Awesome 5 Brands";
+}
+
+.user:before {
+  content: "\F007";
+}
+
+.twitter:before {
+  content: "\F099";
+}
+
+.twitter:before {
+  content: "\F099";
+}
+
+.github:before {
+  content: "\F09B";
+}
+
+.facebook:before {
+  content: "\F09A";
 }
 
 .text-red {

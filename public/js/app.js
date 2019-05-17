@@ -1805,6 +1805,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "LoginForm",
   data: function data() {
@@ -35725,6 +35727,14 @@ var render = function() {
       }
     },
     [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
       _c(
         "div",
         { staticClass: "form-group input-icon-left m-b-10" },
@@ -35876,11 +35886,56 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _vm._m(0)
+      _vm._m(4)
     ]
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-social btn-github",
+        attrs: { href: "/auth/github", role: "button" }
+      },
+      [_c("i", { staticClass: "github" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-social btn-facebook",
+        attrs: { href: "/auth/facebook", role: "button" }
+      },
+      [_c("i", { staticClass: "facebook" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-social btn-twitter",
+        attrs: { href: "/auth/twitter", role: "button" }
+      },
+      [_c("i", { staticClass: "twitter" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "divider" }, [_c("span", [_vm._v("or")])])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -50536,9 +50591,9 @@ window.Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Work\myApps\inProgress\nerdx\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! E:\Work\myApps\inProgress\nerdx\public\design\site\js\theme.min.js */"./public/design/site/js/theme.min.js");
-module.exports = __webpack_require__(/*! E:\Work\myApps\inProgress\nerdx\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Work\myApps\inProgress\xmentee\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\Work\myApps\inProgress\xmentee\public\design\site\js\theme.min.js */"./public/design/site/js/theme.min.js");
+module.exports = __webpack_require__(/*! E:\Work\myApps\inProgress\xmentee\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
