@@ -22,12 +22,12 @@
                         </a>
                         The Witcher 3: Wild Hunt
                     </h2>
-                    <form method="post" action="{{route('user.channels.update', [$authUser->username, $channel->slug])}}" enctype="multipart/form-data">
-                        @csrf
-                        {{method_field('patch')}}
-                        <input type="file" name="channel_logo">
-                        <input type="submit" class="btn btn-danger" value="update img">
-                    </form>
+                    {{--<form method="post" action="{{route('user.channels.update', [$authUser->username, $channel->slug])}}" enctype="multipart/form-data">--}}
+                        {{--@csrf--}}
+                        {{--{{method_field('patch')}}--}}
+                        {{--<input type="file" name="channel_logo">--}}
+                        {{--<input type="submit" class="btn btn-danger" value="update img">--}}
+                    {{--</form>--}}
                     <p>The world is in chaos. The air is thick with tension and the smoke of burnt villages.</p>
                     <a class="btn btn-primary btn-shadow btn-rounded btn-lg" href="https://www.youtube.com/watch?v=c0i88t0Kacs" data-lightbox role="button">Watch Trailer <i class="fa fa-play"></i></a>
                     <a class="btn btn-outline-default btn-shadow btn-rounded btn-lg m-l-10" href="https://themeforest.net/item/gameforest-responsive-gaming-html-theme/5007730" target="_blank" role="button">Purchase Now <i class="fa fa-shopping-cart"></i></a>

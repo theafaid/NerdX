@@ -15,9 +15,9 @@ class CreateChannelTest extends TestCase
     {
         $this->signIn();
 
-        $this->get(route('user.channels.create', auth()->user()->username))
+        $this->get(route('channels.create'))
             ->assertStatus(200)
-            ->assertViewIs('user.channels.create');
+            ->assertViewIs('channels.create');
     }
 
     /** @test */
@@ -29,8 +29,8 @@ class CreateChannelTest extends TestCase
 
         $channel = make('App\Channel');
 
-        $this->postJson(route('user.channels.store', auth()->user()->name), $channel->toArray())
-            ->assertJson(['redirectUrl' => route('user.channels.show', [$user->username, $channel->slug])]);
+        $this->postJson(route('channels.store'), $channel->toArray())
+            ->assertJson(['redirectUrl' => route('channels.show', $channel->slug)]);
 
         $this->assertNotNull($user->fresh()->channels);
 

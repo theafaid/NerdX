@@ -7,8 +7,12 @@ use App\Http\Requests\StoreChannelRequest;
 use App\Http\Requests\UpdateChannelRequest;
 use Illuminate\Http\Request;
 
-class ChannelsController extends Controller
+class UserChannelsController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth', ['except' => ['show']]);
+    }
     /**
      * Display a listing of the resource.
      *
