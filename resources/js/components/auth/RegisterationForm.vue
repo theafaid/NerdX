@@ -61,7 +61,7 @@
 </template>
 
 <script>
-    import fire from '../mixins/fire'
+    import fire from '../../mixins/fire'
 
     export default{
         mixins: [fire],

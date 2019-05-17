@@ -58,7 +58,7 @@
 
 <script>
 
-    import Fire from '../mixins/fire'
+    import Fire from '../../mixins/fire'
 
     export default {
         name: "EditChannel",

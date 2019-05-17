@@ -39,10 +39,10 @@
 </template>
 
 <script>
-    import Fire from '../mixins/fire'
+    import Fire from '../../mixins/fire'
 
     export default {
-        name: "CreateChannel",
+        name: "edit",
 
         mixins: [Fire],
 
